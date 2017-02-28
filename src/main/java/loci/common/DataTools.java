@@ -70,15 +70,15 @@ public final class DataTools {
 
   /** Reads the contents of the given file into a string. */
   public static String readFile(String id) throws IOException {
-    RandomAccessInputStream in = new RandomAccessInputStream(id);
-    long idLen = in.length();
-    if (idLen > Integer.MAX_VALUE) {
-      throw new IOException("File too large");
+    try (RandomAccessInputStream in = new RandomAccessInputStream(id)) {
+      long idLen = in.length();
+      if (idLen > Integer.MAX_VALUE) {
+        throw new IOException("File too large");
+      }
+      int len = (int) idLen;
+      String data = in.readString(len);
+      return data;
     }
-    int len = (int) idLen;
-    String data = in.readString(len);
-    in.close();
-    return data;
   }
 
   // -- Word decoding - bytes to primitive types --
