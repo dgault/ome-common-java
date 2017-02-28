@@ -40,19 +40,12 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 /**
  * A simple writer for INI configuration files.
  *
  * @author Melissa Linkert melissa at glencoesoftware.com
  */
 public class IniWriter {
-
-  /** Logger for this class. */
-  private static final Logger LOGGER = LoggerFactory.getLogger(IniWriter.class);
-
   // -- IniWriter API methods --
 
   /**
